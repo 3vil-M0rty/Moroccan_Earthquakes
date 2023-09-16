@@ -1,0 +1,403 @@
+body {
+    text-align: center;
+    font-family: 'Titillium Web', sans-serif;
+    background-color: rgb(0, 0, 0);
+    margin: 10px auto;
+}
+
+.paypal-button {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    cursor: pointer;
+    background-color: rgb(87, 87, 87);
+    color: white;
+    border: 1px solid white;
+    padding: 5px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    
+}
+.paypal-button:disabled {
+    pointer-events: none;
+}
+
+.paypal-button:hover {
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    background-color:  #3b7bbf;
+    border: 2px solid white;
+    color: white;
+}
+
+
+.week-button {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    background-color: rgb(87, 87, 87);
+    color: white;
+    border: 1px solid white;
+    padding: 5px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    
+}
+.week-button:disabled {
+    pointer-events: none;
+}
+
+.week-button:hover {
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    background-color: rgb(25, 218, 25);
+    border: 2px solid white;
+    color: white;
+}
+
+.github-button {
+    position: fixed;
+    left: 10px;
+    bottom: 20px;
+    cursor: pointer;
+    background-color: rgb(87, 87, 87);
+    color: white;
+    border: 1px solid white;
+    padding: 5px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    
+}
+.github-button:disabled {
+    pointer-events: none;
+}
+
+.github-button:hover {
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    background-color: #333;
+    border: 2px solid white;
+    color: white;
+}
+
+
+.container {
+    display: flex;
+    align-items: flex-start;
+    width: 90%;
+    margin: auto;
+}
+
+#map {
+    text-align: left;
+    flex: 8;
+    width: auto;
+    height: 400px;
+    max-height: 400px;
+    margin-right: 5px;
+    box-shadow: -3px -3px 12px #4b4b4b;
+    overflow: hidden;
+}
+
+.sidebar {
+    flex: 2;
+    background-color: #131313;
+    margin-right: 5px;
+    text-align: center;
+    height: 400px;
+    overflow-y: visible;
+    position: relative;
+}
+
+.sidebar-header {
+    background-color: #000000;
+    margin: 0;
+    padding: 5px;
+    color: white;
+}
+
+.sidebar-content {
+    height: 70%;
+    overflow-y: scroll;
+    text-align: left;
+    font-size: 12px;
+    color: white;
+    padding: 5px;
+}
+
+.sidebar-content::-webkit-scrollbar {
+    width: 10px;
+    /* Width of the scrollbar */
+}
+
+/* Style for the scrollbar thumb (the draggable part) */
+.sidebar-content::-webkit-scrollbar-thumb {
+    background: #555;
+    /* Color of the scrollbar thumb */
+    border-radius: 5px;
+    /* Rounded corners for the thumb */
+}
+
+/* Style for the scrollbar track on hover */
+.sidebar-content::-webkit-scrollbar-thumb:hover {
+    background: #888;
+    /* Color of the track on hover */
+}
+
+.clear-button {
+    position: absolute;
+    left: 78%;
+    transform: translateX(-50%);
+    bottom: 10px;
+    border-radius: 5px;
+    background-color: #646464;
+    color: black;
+    padding: 5px 10px;
+    border: 2px solid #000000;
+    touch-action: manipulation;
+    cursor: pointer;
+    will-change: transform;
+}
+
+.clear-button:disabled {
+    pointer-events: none;
+}
+
+.clear-button:hover {
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    transform: translate(-50%, -2px);
+    background-color: rgb(218, 25, 25);
+    border: 2px solid white;
+    color: white;
+}
+
+.clear-button:active {
+    box-shadow: none;
+    transform: translateY(-50%, 0);
+}
+
+.slider-container {
+    text-align: center;
+    color: white;
+    background-color: #000000;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.slider {
+    writing-mode: bt-lr;
+    width: 100px;
+    height: 10px;
+    margin: auto;
+    appearance: none;
+    /* Remove default styles */
+    background: linear-gradient(to right,
+            #008000 0%,
+            /* Green - Minor earthquakes */
+            #FFFF00 29%,
+            /* Yellow - Light earthquakes */
+            #FFA500 40%,
+            /* Orange - Moderate earthquakes */
+            #FF0000 60%,
+            /* Red - Strong earthquakes */
+            #800080 70%,
+
+            #300025 90%
+            /* Purple - Major earthquakes */
+        );
+    /* Add gradient background */
+    border: none;
+    /* Remove border */
+    border-radius: 10%;
+    outline: none;
+    /* Remove outline */
+    transform: rotate(-90deg);
+    transform-origin: center;
+}
+
+.slider::-webkit-slider-thumb {
+    appearance: none;
+    /* Remove default styles */
+    width: 10px;
+    /* Set thumb width */
+    height: 30px;
+    /* Set thumb height */
+    background-color: #000000;
+    /* Set thumb color */
+    border: 1px solid rgb(105, 105, 105);
+    border-radius: 10%;
+    /* Make thumb round */
+    cursor: pointer;
+    /* Change cursor on hover */
+}
+
+/* Style the slider label */
+#sliderlabel {
+    position: relative;
+    font-weight: bold;
+    bottom: -120px;
+    color: white;
+    font-size: 12px;
+    margin-bottom: 20px;
+    /* Add some spacing between label and slider */
+}
+
+/* Style the selected magnitude text */
+.slider-value {
+    position: relative;
+    top: -80px;
+    color: white;
+    font-weight: bold;
+    /* Make the text bold */
+}
+
+.wrapper {
+    position: relative;
+    top: 5px;
+    font-weight: bold;
+    width: 50%;
+    background-color: rgb(0, 0, 0);
+    margin: auto;
+    border-radius: 10px;
+    padding: 20px 10px 5px 10px;
+}
+
+.range-value {
+    background-color: #000000;
+    width: 20%;
+    position: relative;
+    margin: auto;
+    padding: 10px 0;
+    bottom: 3px;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    color: white;
+}
+
+.yearcontainer {
+    position: relative;
+    width: 100%;
+    height: 20px;
+    margin-top: 5px;
+}
+
+.yearslider {
+    width: 100%;
+    height: 10px;
+    position: absolute;
+    margin: auto;
+    background-color: #000000;
+    box-shadow: 0 3px 12px #757575;
+    top: 0;
+    bottom: 0;
+    border-radius: 5px;
+}
+
+.yearcontainer input[type="range"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 100%;
+    outline: none;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    background-color: transparent;
+    pointer-events: none;
+}
+
+.yearcontainer input[type="range"]::-webkit-slider-runnable-track {
+    -webkit-appearance: none;
+    height: 10px;
+}
+
+.yearcontainer input[type="range"]::-ms-track {
+    appearance: none;
+    height: 10px;
+}
+
+.yearcontainer input[type="range"]::-webkit-slider-thumb {
+    appearance: none;
+    height: 30px;
+    width: 10px;
+    background-color: black;
+    border: 1px solid rgb(105, 105, 105);
+    border-radius: 10%;
+    margin-top: -10px;
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+
+
+.yearcontainer input[type="range"]::-moz-range-thumb {
+    appearance: none;
+    height: 30px;
+    width: 10px;
+    cursor: pointer;
+    pointer-events: auto;
+    border-radius: 10%;
+    background-color: black;
+    border: 1px solid rgb(105, 105, 105);
+}
+
+.yearcontainer input[type="range"]::-ms-thumb {
+    appearance: none;
+    height: 30px;
+    width: 10px;
+    cursor: pointer;
+    pointer-events: auto;
+    border-radius: 10%;
+    background-color: black;
+    border: 1px solid rgb(105, 105, 105);
+}
+
+.yearcontainer input[type="range"]:active::-webkit-slider-thumb {
+    background-color: #000000;
+    border-radius: 30%;
+    border: 1px solid rgb(105, 105, 105);
+}
+
+
+.legend {
+    padding: 6px 8px;
+    font: 14px Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    background: white;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    line-height: 24px;
+    color: #555;
+}
+
+.legend h4 {
+    text-align: center;
+    font-size: 16px;
+    margin: 2px 12px 8px;
+    color: #777;
+}
+
+.legend span {
+    position: relative;
+    bottom: 3px;
+}
+
+.legend i {
+    width: 18px;
+    height: 18px;
+    float: left;
+    margin: 0 8px 0 0;
+    opacity: 0.7;
+}
+
+.bottom-left{
+    color: white;
+    font-weight: bold;
+}
