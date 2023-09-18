@@ -1,8 +1,39 @@
 body {
     text-align: center;
-    font-family: 'Titillium Web', sans-serif;
-    background-color: rgb(0, 0, 0);
+    font-family:'Courier New', Courier, monospace;
+    background-color: #000000;
     margin: 10px auto;
+}
+
+blockquote {
+    margin-top: -20px;
+}
+.navbar {
+    background-color: #000000; 
+    position: fixed; 
+    top: 0; 
+    width: 100%; 
+    display: flex; 
+    justify-content: space-between; 
+    padding: 25px 40px; 
+    z-index: 5000; 
+}
+
+.navbar a {
+    text-decoration: none; 
+    margin-right: 20px; 
+}
+
+
+header h1 {
+    margin-top: 50px; 
+    color: #ffffff;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.logo {
+    width: 30px; 
+    height: 30px; 
 }
 
 .paypal-button {
@@ -10,34 +41,24 @@ body {
     top: 10px;
     left: 10px;
     cursor: pointer;
-    background-color: rgb(87, 87, 87);
-    color: white;
-    border: 1px solid white;
-    padding: 5px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
-    
+    background-color: transparent; 
 }
+
 .paypal-button:disabled {
     pointer-events: none;
 }
 
 .paypal-button:hover {
-    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
-    background-color:  #3b7bbf;
-    border: 2px solid white;
-    color: white;
+    margin-top: 1px;
 }
-
 
 .week-button {
     position: fixed;
     top: 10px;
     right: 10px;
     cursor: pointer;
-    background-color: rgb(87, 87, 87);
-    color: white;
+    background-color: #93B1A6;
+    color: #040D12;
     border: 1px solid white;
     padding: 5px;
     border-radius: 5px;
@@ -51,36 +72,26 @@ body {
 
 .week-button:hover {
     box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
-    background-color: rgb(25, 218, 25);
+    background-color: #040D12;
+    color: #93B1A6;
     border: 2px solid white;
-    color: white;
 }
 
 .github-button {
     position: fixed;
-    left: 10px;
-    bottom: 20px;
+    top: 10px;
+    left: 50px;
     cursor: pointer;
-    background-color: rgb(87, 87, 87);
-    color: white;
-    border: 1px solid white;
-    padding: 5px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
-    
+    background-color: transparent;
 }
+
 .github-button:disabled {
     pointer-events: none;
 }
 
 .github-button:hover {
-    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
-    background-color: #333;
-    border: 2px solid white;
-    color: white;
+    margin-top: 1px;
 }
-
 
 .container {
     display: flex;
@@ -94,10 +105,8 @@ body {
     flex: 8;
     width: auto;
     height: 400px;
-    max-height: 400px;
     margin-right: 5px;
-    box-shadow: -3px -3px 12px #4b4b4b;
-    overflow: hidden;
+    box-shadow: -3px -3px 9px #555;
 }
 
 .sidebar {
@@ -128,24 +137,18 @@ body {
 
 .sidebar-content::-webkit-scrollbar {
     width: 10px;
-    /* Width of the scrollbar */
 }
 
-/* Style for the scrollbar thumb (the draggable part) */
 .sidebar-content::-webkit-scrollbar-thumb {
     background: #555;
-    /* Color of the scrollbar thumb */
     border-radius: 5px;
-    /* Rounded corners for the thumb */
 }
 
-/* Style for the scrollbar track on hover */
 .sidebar-content::-webkit-scrollbar-thumb:hover {
     background: #888;
-    /* Color of the track on hover */
 }
 
-.clear-button {
+.clear-button, .clear-button2{
     position: absolute;
     left: 78%;
     transform: translateX(-50%);
@@ -160,11 +163,11 @@ body {
     will-change: transform;
 }
 
-.clear-button:disabled {
+.clear-button:disabled, .clear-button2:disabled {
     pointer-events: none;
 }
 
-.clear-button:hover {
+.clear-button:hover{
     box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
     transform: translate(-50%, -2px);
     background-color: rgb(218, 25, 25);
@@ -172,10 +175,13 @@ body {
     color: white;
 }
 
-.clear-button:active {
+.clear-button:active{
     box-shadow: none;
     transform: translateY(-50%, 0);
 }
+
+
+
 
 .slider-container {
     text-align: center;
@@ -193,48 +199,31 @@ body {
     height: 10px;
     margin: auto;
     appearance: none;
-    /* Remove default styles */
     background: linear-gradient(to right,
             #008000 0%,
-            /* Green - Minor earthquakes */
             #FFFF00 29%,
-            /* Yellow - Light earthquakes */
             #FFA500 40%,
-            /* Orange - Moderate earthquakes */
             #FF0000 60%,
-            /* Red - Strong earthquakes */
             #800080 70%,
-
             #300025 90%
-            /* Purple - Major earthquakes */
         );
-    /* Add gradient background */
     border: none;
-    /* Remove border */
     border-radius: 10%;
     outline: none;
-    /* Remove outline */
     transform: rotate(-90deg);
     transform-origin: center;
 }
 
 .slider::-webkit-slider-thumb {
     appearance: none;
-    /* Remove default styles */
     width: 10px;
-    /* Set thumb width */
     height: 30px;
-    /* Set thumb height */
     background-color: #000000;
-    /* Set thumb color */
     border: 1px solid rgb(105, 105, 105);
     border-radius: 10%;
-    /* Make thumb round */
     cursor: pointer;
-    /* Change cursor on hover */
 }
 
-/* Style the slider label */
 #sliderlabel {
     position: relative;
     font-weight: bold;
@@ -242,16 +231,13 @@ body {
     color: white;
     font-size: 12px;
     margin-bottom: 20px;
-    /* Add some spacing between label and slider */
 }
 
-/* Style the selected magnitude text */
 .slider-value {
     position: relative;
     top: -80px;
     color: white;
     font-weight: bold;
-    /* Make the text bold */
 }
 
 .wrapper {
@@ -261,18 +247,14 @@ body {
     width: 50%;
     background-color: rgb(0, 0, 0);
     margin: auto;
-    border-radius: 10px;
-    padding: 20px 10px 5px 10px;
 }
 
 .range-value {
     background-color: #000000;
-    width: 20%;
     position: relative;
     margin: auto;
     padding: 10px 0;
     bottom: 3px;
-    border-radius: 5px;
     text-align: center;
     font-weight: bold;
     font-size: 16px;
@@ -281,21 +263,20 @@ body {
 
 .yearcontainer {
     position: relative;
-    width: 100%;
     height: 20px;
     margin-top: 5px;
 }
 
 .yearslider {
-    width: 100%;
+    width: 99%;
+    margin:auto;
+    outline: none;
     height: 10px;
     position: absolute;
-    margin: auto;
     background-color: #000000;
-    box-shadow: 0 3px 12px #757575;
+    border: 1px solid #93B1A6;
     top: 0;
     bottom: 0;
-    border-radius: 5px;
 }
 
 .yearcontainer input[type="range"] {
@@ -329,7 +310,6 @@ body {
     width: 10px;
     background-color: black;
     border: 1px solid rgb(105, 105, 105);
-    border-radius: 10%;
     margin-top: -10px;
     cursor: pointer;
     pointer-events: auto;
@@ -343,7 +323,6 @@ body {
     width: 10px;
     cursor: pointer;
     pointer-events: auto;
-    border-radius: 10%;
     background-color: black;
     border: 1px solid rgb(105, 105, 105);
 }
@@ -354,14 +333,12 @@ body {
     width: 10px;
     cursor: pointer;
     pointer-events: auto;
-    border-radius: 10%;
     background-color: black;
     border: 1px solid rgb(105, 105, 105);
 }
 
 .yearcontainer input[type="range"]:active::-webkit-slider-thumb {
-    background-color: #000000;
-    border-radius: 30%;
+    background-color: #183D3D;
     border: 1px solid rgb(105, 105, 105);
 }
 
@@ -370,8 +347,8 @@ body {
     padding: 6px 8px;
     font: 14px Arial, Helvetica, sans-serif;
     font-weight: bold;
-    background: white;
     background: rgba(255, 255, 255, 0.8);
+    opacity: 0.6;
     border-radius: 10px;
     line-height: 24px;
     color: #555;
@@ -400,4 +377,53 @@ body {
 .bottom-left{
     color: white;
     font-weight: bold;
+    margin-top: 5px;
+}
+
+.phone-only {
+    display: none;
+}
+
+@media screen and (max-width: 600px) {
+    .desktop-only {
+        display: none;
+    }
+    .phone-only {
+        height: 50%;
+        margin-top: 50px;
+        width: 100%;
+        display: block;
+    }
+    .phone-only .sidebar{
+        margin-right: 0;
+        height: 100%;
+        margin-bottom: 0;
+    }
+    .legend {
+        width: 120px ;
+    }
+    body {
+        background-color: #008000;
+    }
+
+    body, html{
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        width: 100%;
+    }
+    .container {
+        height: 50%;
+        width: 100%;
+        background-color: red;
+    }
+
+    #map {
+        width: 100%;
+        height: 100%; /* Adjust 50px to match the height of your navbar */
+        margin-top: 50px;
+        margin-right: 0;
+        margin-bottom: 0;
+    }
+    
 }

@@ -32,8 +32,13 @@ function slideTwo() {
 }
 
 function fillColor() {
-    const startPercent = ((sliderOne.value - sliderOne.min) / (sliderOne.max - sliderOne.min)) * 100;
-    const endPercent = ((sliderTwo.value - sliderOne.min) / (sliderOne.max - sliderOne.min)) * 100;
+    const range = 2023-2004;
+    const rangeStart = parseInt(sliderOne.value)-2004;
+    const rangeEnd = parseInt(sliderTwo.value)-2004;
 
-    sliderTrack.style.background = `linear-gradient(to right, #000 0%, #000 ${startPercent}%, #fff ${startPercent}%, #fff ${endPercent}%, #000 ${endPercent}%, #000 100%)`;
+    const startPercentage = (rangeStart / range) * 100;
+    const endPercentage = (rangeEnd / range) * 100;
+
+    sliderTrack.style.background = `
+        linear-gradient(to right, black 0%, black ${startPercentage}%, #93B1A6 ${startPercentage}%, #93B1A6 ${endPercentage}%, black ${endPercentage}%, black 100%)`;
 }

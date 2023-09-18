@@ -1,27 +1,27 @@
 var map = L.map('map').setView([29, -10], 5);
 
 var streetLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
+    maxZoom: 25,
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 });
 
 var topographicLayer = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
-    maxZoom: 17,
+    maxZoom: 25,
     attribution: '&copy; <a href="https://www.opentopomap.org">OpenTopoMap</a> contributors'
 });
 
 var cartoDBDarkLayer = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png', {
-    maxZoom: 19,
+    maxZoom: 25,
     attribution: 'Map data &copy; <a href="https://www.carto.com/">CartoDB</a> contributors'
 });
 
 var cartoDBVoyagerLayer = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.png', {
-    maxZoom: 19,
+    maxZoom: 25,
     attribution: 'Map data &copy; <a href="https://www.carto.com/">CartoDB</a> contributors'
 });
 
 var satelliteLayer = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/satellite-v9/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-    maxZoom: 18,
+    maxZoom: 25,
     attribution: 'Imagery &copy; <a href="https://www.mapbox.com/">Mapbox</a>',
     accessToken: API_KEY
 });
@@ -33,13 +33,13 @@ var satellitesrtLayer = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/sat
 });
 
 var nightnavLayer = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/navigation-night-v1/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-    maxZoom: 18,
+    maxZoom: 25,
     attribution: 'Imagery &copy; <a href="https://www.mapbox.com/">Mapbox</a>',
     accessToken: API_KEY
 });
 
 var daynavLayer = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/navigation-day-v1/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-    maxZoom: 18,
+    maxZoom: 25,
     attribution: 'Imagery &copy; <a href="https://www.mapbox.com/">Mapbox</a>',
     accessToken: API_KEY
 });
@@ -74,6 +74,7 @@ const circleMarkersLayer = L.layerGroup().addTo(map);
 
 
 const sidebar = document.getElementById("sidecontent");
+const sidebar2 = document.getElementById("sidecontent2")
 
 function findMostRecentEarthquake(data) {
     data.sort((a, b) => {
@@ -108,23 +109,40 @@ function displayEarthquakeInfo(earthquake) {
     const timePart = `${localTime.getHours().toString().padStart(2, '0')}:${localTime.getMinutes().toString().padStart(2, '0')}:${localTime.getSeconds().toString().padStart(2, '0')}`;
 
     const content = `
-        <p><strong><span style="color: green;">Place:</span></strong> ${earthquake["Place"]}</p>
-        <p><strong><span style="color: green;">Latitude:</span></strong> ${earthquake["Latitude"]}</p>
-        <p><strong><span style="color: green;">Longitude:</span></strong> ${earthquake["Longitude"]}</p>
-        <p><strong><span style="color: green;">Local Day:</span></strong> ${dayPart}</p>
-        <p><strong><span style="color: green;">Local Hour (GMT+1):</span></strong> ${timePart}</p>
-        <p><strong><span style="color: green;">Type:</span></strong> ${earthquake["(Earthquake | Quarry)"]}</p>
-        <p><strong><span style="color: green;">Magnitude:</span></strong> ${earthquake["Magnitude"]}</p>
-        <p><strong><span style="color: green;">Depth: (km)</span></strong> ${earthquake["Depth (km)"]}</p>
-        <p><strong><span style="color: green;">Number of felt reports:</span></strong> ${numberOfFeltReports}</p>
-        <p><strong><span style="color: green;">Number of stations:</span></strong> ${numberOfStations}</p>
-        <p><strong><span style="color: green;">Algorithm:</span></strong> ${earthquake["Method/Algrothim"]}</p>
+        <p><strong><span style="color: #5C8374;">Place:</span></strong> ${earthquake["Place"]}</p>
+        <p><strong><span style="color: #5C8374;">Latitude:</span></strong> ${earthquake["Latitude"]}</p>
+        <p><strong><span style="color: #5C8374;">Longitude:</span></strong> ${earthquake["Longitude"]}</p>
+        <p><strong><span style="color: #5C8374;">Local Day:</span></strong> ${dayPart}</p>
+        <p><strong><span style="color: #5C8374;">Local Hour (GMT+1):</span></strong> ${timePart}</p>
+        <p><strong><span style="color: #5C8374;">Type:</span></strong> ${earthquake["(Earthquake | Quarry)"]}</p>
+        <p><strong><span style="color: #5C8374;">Magnitude:</span></strong> ${earthquake["Magnitude"]}</p>
+        <p><strong><span style="color: #5C8374;">Depth: (km)</span></strong> ${earthquake["Depth (km)"]}</p>
+        <p><strong><span style="color: #5C8374;">Number of felt reports:</span></strong> ${numberOfFeltReports}</p>
+        <p><strong><span style="color: #5C8374;">Number of stations:</span></strong> ${numberOfStations}</p>
+        <p><strong><span style="color: #5C8374;">Algorithm:</span></strong> ${earthquake["Method/Algrothim"]}</p>
         <button class="clear-button">Clear</button>
     `;
+    const content2 = `
+        <p><strong><span style="color: #5C8374;">Place:</span></strong> ${earthquake["Place"]}</p>
+        <p><strong><span style="color: #5C8374;">Latitude:</span></strong> ${earthquake["Latitude"]}</p>
+        <p><strong><span style="color: #5C8374;">Longitude:</span></strong> ${earthquake["Longitude"]}</p>
+        <p><strong><span style="color: #5C8374;">Local Day:</span></strong> ${dayPart}</p>
+        <p><strong><span style="color: #5C8374;">Local Hour (GMT+1):</span></strong> ${timePart}</p>
+        <p><strong><span style="color: #5C8374;">Type:</span></strong> ${earthquake["(Earthquake | Quarry)"]}</p>
+        <p><strong><span style="color: #5C8374;">Magnitude:</span></strong> ${earthquake["Magnitude"]}</p>
+        <p><strong><span style="color: #5C8374;">Depth: (km)</span></strong> ${earthquake["Depth (km)"]}</p>
+        <p><strong><span style="color: #5C8374;">Number of felt reports:</span></strong> ${numberOfFeltReports}</p>
+        <p><strong><span style="color: #5C8374;">Number of stations:</span></strong> ${numberOfStations}</p>
+        <p><strong><span style="color: #5C8374;">Algorithm:</span></strong> ${earthquake["Method/Algrothim"]}</p>
+        <button class="clear-button2">Clear</button>
+    `;
     sidebar.innerHTML = content;
+    sidebar2.innerHTML = content2;
     isEarthquakeInfoDisplayed = true;
     const clearButton = document.querySelector(".clear-button");
+    const clearButton2 = document.querySelector(".clear-button2");
     clearButton.addEventListener("click", clearSidebar);
+    clearButton2.addEventListener("click", clearSidebar2);
 
 }
 
@@ -133,6 +151,10 @@ function clearSidebar() {
     isEarthquakeInfoDisplayed = false;
 }
 
+function clearSidebar2() {
+    sidebar2.innerHTML = `<button class="clear-button2">Clear</button>`;
+    isEarthquakeInfoDisplayed = false;
+}
 var legend = L.control({ position: "bottomleft" });
 
 legend.onAdd = function (map) {
@@ -192,8 +214,6 @@ function filterAndDisplayEarthquakes() {
     });
 }
 
-
 document.getElementById("magnitudeSlider").addEventListener("input", filterAndDisplayEarthquakes);
 document.getElementById("slider-1").addEventListener("input", filterAndDisplayEarthquakes);
 document.getElementById("slider-2").addEventListener("input", filterAndDisplayEarthquakes);
-
