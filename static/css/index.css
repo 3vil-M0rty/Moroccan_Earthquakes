@@ -403,7 +403,7 @@ header h1 {
         width: 120px ;
     }
     body {
-        background-color: #008000;
+        background-color: #000000;
     }
 
     body, html{
@@ -415,7 +415,7 @@ header h1 {
     .container {
         height: 50%;
         width: 100%;
-        background-color: red;
+        background-color: rgb(0, 0, 0);
     }
 
     #map {
