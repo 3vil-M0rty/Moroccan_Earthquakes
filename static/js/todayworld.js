@@ -1,7 +1,7 @@
 var maxBounds = L.latLngBounds(L.latLng(-90, -180), L.latLng(90, 180));
 var map = L.map('map', {
-    center: [29, -10],
-    zoom: 5,
+    center: [0, 0],
+    zoom: 1,
     maxBounds: maxBounds, 
     maxZoom: 25,
     minZoom: 1
@@ -9,6 +9,7 @@ var map = L.map('map', {
 
 var streetLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 25,
+    
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 });
 
@@ -64,7 +65,7 @@ var baseLayers = {
 cartoDBDarkLayer.addTo(map);
 const tectonicPlatesLayer = L.geoJSON(plates, {
     style: {
-        color: 'red', 
+        color: 'green', 
         weight: 2,
     }
 });
@@ -81,19 +82,17 @@ const circleMarkersLayer = L.layerGroup().addTo(map);
 const apiUrl = 'https://earthquake.usgs.gov/fdsnws/event/1/query';
 
 const currentDate = new Date();
-const sevenDaysAgo = new Date(currentDate);
-sevenDaysAgo.setDate(currentDate.getDate() - 7);
-const startDate = sevenDaysAgo.toISOString().split('T')[0];
-const endDate = currentDate.toISOString().split('T')[0];
+const startDate = currentDate.toISOString().split('T')[0]; // Start of today
+const endDate = startDate; // End of today
 
 const parameters = {
     format: 'geojson',
     starttime: `${startDate}T00:00:00`,
     endtime: `${endDate}T23:59:59`,
-    minlatitude: 27.66,
-    maxlatitude: 35.92,
-    minlongitude: -13.17,
-    maxlongitude: -0.99,
+    minlatitude: -90,
+    maxlatitude: 90,
+    minlongitude: -180,
+    maxlongitude: 180,
     maxdepth: 1000,
     orderby: "time"
 };
@@ -158,7 +157,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function displayEarthquakeInfo(earthquake) {
     const content = `
-        <p><strong><span style="color: green;">Place:</span></strong> ${earthquake["Place"]}</p>
+        <p><strong><span style="color: green">Place:</span></strong> ${earthquake["Place"]}</p>
         <p><strong><span style="color: green;">Latitude:</span></strong> ${earthquake["Latitude"]}</p>
         <p><strong><span style="color: green;">Longitude:</span></strong> ${earthquake["Longitude"]}</p>
         <p><strong><span style="color: green;">Local Time:</span></strong> ${earthquake["Local Time (Morocco)"]}</p>
@@ -230,6 +229,7 @@ legendToggle.addEventListener("change", function () {
 
 legendContent.style.display = "none";
 overlays["Legend"] = legend;
+
 
 
 function updateEarthquakeData() {

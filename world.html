@@ -3,11 +3,13 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <title>Moroccan Earthquakes History</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weekly Data</title>
     <link rel="stylesheet" href="static/css/index.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <link rel="icon" href="logo/flag.png" type="image/png">
 </head>
 
@@ -39,8 +41,8 @@
                 <img src="logo/github.png" alt="Github" style="height: 30px; width: 30px;">
             </a>
         </nav>
-        <h1 class="desktop-only">20 YEARS HISTORY OF MOROCCAN EARTHQUAKES</h1>
-        <blockquote class="desktop-only" lang="ar" style="color: white;">
+        <h1 class="desktop-only">LIVE TODAY'S DATA OF WORLD EARTHQUAKES</h1>
+        <blockquote lang="ar" class="desktop-only" style="color: white;">
             ذو العقل يشقى في النعيم بعقله ... وأخو الجهالة في الشقاوة ينعمُ
             <footer id="quote">- Al-Mutanabbi</footer>
         </blockquote>
@@ -55,12 +57,9 @@
                 <button class="clear-button">Clear</button>
             </div>
         </div>
-        <div class="desktop-only slider-container">
-            <p id="sliderlabel">Magnitude</p>
-            <input type="range" id="magnitudeSlider" class="slider vertical-slider" min="1" max="10" step="0.1"
-                value="1">
-            <span id="selectedMagnitude" class="slider-value"></span>
-        </div>
+    </div>
+    <div class="desktop-only bottom-left">
+        <span id="numofeq"></span>
     </div>
     <div class="phone-only">
         <div class="sidebar">
@@ -73,31 +72,10 @@
         </div>
     </div>
 
-
-    <div class="desktop-only wrapper">
-        <div class="range-value">
-
-            <span id="range1"></span>
-            <span>|</span>
-            <span id="range2"></span>
-
-        </div>
-
-        <div class="yearcontainer">
-            <div class="yearslider"></div>
-            <input type="range" min="2004" max="2023" value="2004" id="slider-1" oninput="slideOne()">
-            <input type="range" min="2004" max="2023" value="2023" id="slider-2" oninput="slideTwo()">
-        </div>
-    </div>
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-
-    <script type="text/javascript" src="static/js/data.js"></script>
-    <script src="static/js/yearslider.js"></script>
-    <script src="static/js/magslider.js"></script>
-    <script src="static/js/menu.js"></script>
     <script type="text/javascript" src="static/js/config.js"></script>
-    <script type="text/javascript" src="static/js/index.js"></script>
+    <script type="text/javascript" src="static/js/data.js"></script>
+    <script src="static/js/menu.js"></script>
+    <script src="static/js/todayworld.js"></script>
 
 </body>
 

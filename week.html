@@ -16,14 +16,29 @@
 <body>
     <header>
         <nav class="navbar">
-            <a class="paypal-button" title="Donate via Paypal" href="https://www.paypal.me/3vlM0rty" target="_blank">
-                <img src="logo/paypal.png" alt="PayPal Logo"  class="logo">
+            <a href="index.html" id="home">
+                <img src="logo/flag.png" alt="home" style="height: 30px; width: 30px;">
             </a>
-            <a class="week-button" href="index.html">
-                History
+            <div class="dropdown" id="drp">
+                <button class="dropbtn" id="mnbttn" onclick="toggleDropdown()">
+                    <img src="logo/burger.png" alt="menu" style="height: 30px; width: 30px;">
+                </button>
+                <div id="myDropdown" class="dropdown-content">
+                    <a href="world.html">World Today's Earthquakes</a>
+                    <a href="week.html">Moroccan Weekly Earthquakes</a>
+                    <a href="index.html">Moroccan 20 Years Seismic History</a>
+                    <a href="https://www.paypal.me/3vlM0rty" target="_blank">
+                        Donate via PayPal
+                    </a><a href="https://github.com/3vil-M0rty" target="_blank">
+                        Visit me on Github
+                    </a>
+                </div>
+            </div>
+            <a href="https://www.paypal.me/3vlM0rty" title="Donate Via PayPal" target="_blank">
+                <img src="logo/paypal.png" alt="PayPal" style="height: 30px; width: 30px;">
             </a>
-            <a class="github-button" title="Visit me on Github" href="https://github.com/3vil-M0rty" target="_blank">
-                <img src="logo/github.png" alt="PayPal Logo"  class="logo">
+            <a href="https://github.com/3vil-M0rty" title="Visit Me On Github" target="_blank">
+                <img src="logo/github.png" alt="Github" style="height: 30px; width: 30px;">
             </a>
         </nav>
         <h1 class="desktop-only">LIVE WEEKLY DATA OF MOROCCAN EARTHQUAKES</h1>
@@ -59,9 +74,8 @@
 
     <script type="text/javascript" src="static/js/config.js"></script>
     <script type="text/javascript" src="static/js/data.js"></script>
+    <script src="static/js/menu.js"></script>
     <script src="static/js/weekData.js"></script>
-
-
 
 </body>
 

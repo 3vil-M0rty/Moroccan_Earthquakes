@@ -1,5 +1,11 @@
-var map = L.map('map').setView([29, -10], 5);
-
+var maxBounds = L.latLngBounds(L.latLng(-90, -180), L.latLng(90, 180));
+var map = L.map('map', {
+    center: [29, -10],
+    zoom: 5,
+    maxBounds: maxBounds, 
+    maxZoom: 25,
+    minZoom: 1
+});
 var streetLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 25,
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -109,31 +115,31 @@ function displayEarthquakeInfo(earthquake) {
     const timePart = `${localTime.getHours().toString().padStart(2, '0')}:${localTime.getMinutes().toString().padStart(2, '0')}:${localTime.getSeconds().toString().padStart(2, '0')}`;
 
     const content = `
-        <p><strong><span style="color: #5C8374;">Place:</span></strong> ${earthquake["Place"]}</p>
-        <p><strong><span style="color: #5C8374;">Latitude:</span></strong> ${earthquake["Latitude"]}</p>
-        <p><strong><span style="color: #5C8374;">Longitude:</span></strong> ${earthquake["Longitude"]}</p>
-        <p><strong><span style="color: #5C8374;">Local Day:</span></strong> ${dayPart}</p>
-        <p><strong><span style="color: #5C8374;">Local Hour (GMT+1):</span></strong> ${timePart}</p>
-        <p><strong><span style="color: #5C8374;">Type:</span></strong> ${earthquake["(Earthquake | Quarry)"]}</p>
-        <p><strong><span style="color: #5C8374;">Magnitude:</span></strong> ${earthquake["Magnitude"]}</p>
-        <p><strong><span style="color: #5C8374;">Depth: (km)</span></strong> ${earthquake["Depth (km)"]}</p>
-        <p><strong><span style="color: #5C8374;">Number of felt reports:</span></strong> ${numberOfFeltReports}</p>
-        <p><strong><span style="color: #5C8374;">Number of stations:</span></strong> ${numberOfStations}</p>
-        <p><strong><span style="color: #5C8374;">Algorithm:</span></strong> ${earthquake["Method/Algrothim"]}</p>
+        <p><strong><span style="color: green;">Place:</span></strong> ${earthquake["Place"]}</p>
+        <p><strong><span style="color: green;">Latitude:</span></strong> ${earthquake["Latitude"]}</p>
+        <p><strong><span style="color: green;">Longitude:</span></strong> ${earthquake["Longitude"]}</p>
+        <p><strong><span style="color: green;">Local Day:</span></strong> ${dayPart}</p>
+        <p><strong><span style="color: green;">Local Hour (GMT+1):</span></strong> ${timePart}</p>
+        <p><strong><span style="color: green;">Type:</span></strong> ${earthquake["(Earthquake | Quarry)"]}</p>
+        <p><strong><span style="color: green;">Magnitude:</span></strong> ${earthquake["Magnitude"]}</p>
+        <p><strong><span style="color: green;">Depth: (km)</span></strong> ${earthquake["Depth (km)"]}</p>
+        <p><strong><span style="color: green;">Number of felt reports:</span></strong> ${numberOfFeltReports}</p>
+        <p><strong><span style="color: green;">Number of stations:</span></strong> ${numberOfStations}</p>
+        <p><strong><span style="color: green;">Algorithm:</span></strong> ${earthquake["Method/Algrothim"]}</p>
         <button class="clear-button">Clear</button>
     `;
     const content2 = `
-        <p><strong><span style="color: #5C8374;">Place:</span></strong> ${earthquake["Place"]}</p>
-        <p><strong><span style="color: #5C8374;">Latitude:</span></strong> ${earthquake["Latitude"]}</p>
-        <p><strong><span style="color: #5C8374;">Longitude:</span></strong> ${earthquake["Longitude"]}</p>
-        <p><strong><span style="color: #5C8374;">Local Day:</span></strong> ${dayPart}</p>
-        <p><strong><span style="color: #5C8374;">Local Hour (GMT+1):</span></strong> ${timePart}</p>
-        <p><strong><span style="color: #5C8374;">Type:</span></strong> ${earthquake["(Earthquake | Quarry)"]}</p>
-        <p><strong><span style="color: #5C8374;">Magnitude:</span></strong> ${earthquake["Magnitude"]}</p>
-        <p><strong><span style="color: #5C8374;">Depth: (km)</span></strong> ${earthquake["Depth (km)"]}</p>
-        <p><strong><span style="color: #5C8374;">Number of felt reports:</span></strong> ${numberOfFeltReports}</p>
-        <p><strong><span style="color: #5C8374;">Number of stations:</span></strong> ${numberOfStations}</p>
-        <p><strong><span style="color: #5C8374;">Algorithm:</span></strong> ${earthquake["Method/Algrothim"]}</p>
+        <p><strong><span style="color: green;">Place:</span></strong> ${earthquake["Place"]}</p>
+        <p><strong><span style="color: green;">Latitude:</span></strong> ${earthquake["Latitude"]}</p>
+        <p><strong><span style="color: green;">Longitude:</span></strong> ${earthquake["Longitude"]}</p>
+        <p><strong><span style="color: green;">Local Day:</span></strong> ${dayPart}</p>
+        <p><strong><span style="color: green;">Local Hour (GMT+1):</span></strong> ${timePart}</p>
+        <p><strong><span style="color: green;">Type:</span></strong> ${earthquake["(Earthquake | Quarry)"]}</p>
+        <p><strong><span style="color: green;">Magnitude:</span></strong> ${earthquake["Magnitude"]}</p>
+        <p><strong><span style="color: green;">Depth: (km)</span></strong> ${earthquake["Depth (km)"]}</p>
+        <p><strong><span style="color: green;">Number of felt reports:</span></strong> ${numberOfFeltReports}</p>
+        <p><strong><span style="color: green;">Number of stations:</span></strong> ${numberOfStations}</p>
+        <p><strong><span style="color: green;">Algorithm:</span></strong> ${earthquake["Method/Algrothim"]}</p>
         <button class="clear-button2">Clear</button>
     `;
     sidebar.innerHTML = content;
@@ -155,21 +161,45 @@ function clearSidebar2() {
     sidebar2.innerHTML = `<button class="clear-button2">Clear</button>`;
     isEarthquakeInfoDisplayed = false;
 }
+
 var legend = L.control({ position: "bottomleft" });
 
 legend.onAdd = function (map) {
-    var div = L.DomUtil.create("div", "legend");
-    div.innerHTML += "<h4>Magnitude Legend</h4>";
-    div.innerHTML += '<i style="background: #008000"></i><span>mag < 3 </span><br>';
-    div.innerHTML += '<i style="background: #FFFF00"></i><span>3 &le; mag < 4</span><br>';
-    div.innerHTML += '<i style="background: #FFA500"></i><span>4 &le; mag < 6</span><br>';
-    div.innerHTML += '<i style="background: #FF0000"></i><span>6 &le; mag < 7</span><br>';
-    div.innerHTML += '<i style="background: #800080"></i><span>7 &le; mag < 9</span><br>';
-    div.innerHTML += '<i style="background: #300025"></i><span>mag > 9</span><br>';
-    return div;
+    var legendDiv = L.DomUtil.create("div", "legend");
+    legendDiv.innerHTML = `
+        <label>
+            <input type="checkbox" id="legend-toggle"> Show Legend
+        </label>
+        <div class="legend" id="legend-content">
+            <h5>Magnitude Legend</h5>
+            <i style="background: #008000"></i><span>mag < 3 </span><br>
+            <i style="background: #FFFF00"></i><span>3 &le; mag < 4</span><br>
+            <i style="background: #FFA500"></i><span>4 &le; mag < 6</span><br>
+            <i style="background: #FF0000"></i><span>6 &le; mag < 7</span><br>
+            <i style="background: #800080"></i><span>7 &le; mag < 9</span><br>
+            <i style="background: #300025"></i><span>mag > 9</span><br>
+        </div>
+    `;
+    return legendDiv;
 };
-
 legend.addTo(map);
+
+var legendToggle = document.getElementById("legend-toggle");
+var legendContent = document.getElementById("legend-content");
+
+legendToggle.addEventListener("change", function () {
+    if (legendToggle.checked) {
+        legendContent.style.display = "block";
+    } else {
+        legendContent.style.display = "none";
+    }
+});
+
+legendContent.style.display = "none";
+overlays["Legend"] = legend;
+
+
+
 function filterAndDisplayEarthquakes() {
     const magnitudeThreshold = parseFloat(document.getElementById("magnitudeSlider").value);
     const startYear = parseInt(document.getElementById("slider-1").value);
@@ -217,3 +247,5 @@ function filterAndDisplayEarthquakes() {
 document.getElementById("magnitudeSlider").addEventListener("input", filterAndDisplayEarthquakes);
 document.getElementById("slider-1").addEventListener("input", filterAndDisplayEarthquakes);
 document.getElementById("slider-2").addEventListener("input", filterAndDisplayEarthquakes);
+
+
