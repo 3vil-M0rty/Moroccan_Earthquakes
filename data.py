@@ -63,7 +63,7 @@ def reverse_geocode(api_key, latitude, longitude):
 def utc_to_local_time(timestamp):
     timestamp = timestamp / 1000.0
     utc_datetime = datetime.utcfromtimestamp(timestamp)
-    morocco_timezone = pytz.timezone('Africa/Casablanca')  # Specify the Morocco timezone
+    morocco_timezone = pytz.timezone('Africa/Casablanca') 
     local_time = utc_datetime.replace(tzinfo=pytz.UTC).astimezone(morocco_timezone)
     return local_time
 

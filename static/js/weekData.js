@@ -64,7 +64,7 @@ var baseLayers = {
 cartoDBDarkLayer.addTo(map);
 const tectonicPlatesLayer = L.geoJSON(plates, {
     style: {
-        color: 'red', 
+        color: 'green', 
         weight: 2,
     }
 });

@@ -82,8 +82,8 @@ const circleMarkersLayer = L.layerGroup().addTo(map);
 const apiUrl = 'https://earthquake.usgs.gov/fdsnws/event/1/query';
 
 const currentDate = new Date();
-const startDate = currentDate.toISOString().split('T')[0]; // Start of today
-const endDate = startDate; // End of today
+const startDate = currentDate.toISOString().split('T')[0]; 
+const endDate = startDate;
 
 const parameters = {
     format: 'geojson',
