@@ -57,7 +57,7 @@ daynavLayer.addTo(map);
 
 const tectonicPlatesLayer = L.geoJSON(plates, {
     style: {
-        color: 'green', 
+        color: '#2fc92c', 
         weight: 2,
     }
 });
