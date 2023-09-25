@@ -8,45 +8,37 @@ var map = L.map('map', {
 });
 var streetLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 25,
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 });
 
 var topographicLayer = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
     maxZoom: 25,
-    attribution: '&copy; <a href="https://www.opentopomap.org">OpenTopoMap</a> contributors'
 });
 
 var cartoDBDarkLayer = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png', {
     maxZoom: 25,
-    attribution: 'Map data &copy; <a href="https://www.carto.com/">CartoDB</a> contributors'
 });
 
 var cartoDBVoyagerLayer = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.png', {
     maxZoom: 25,
-    attribution: 'Map data &copy; <a href="https://www.carto.com/">CartoDB</a> contributors'
 });
 
 var satelliteLayer = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/satellite-v9/tiles/{z}/{x}/{y}?access_token={accessToken}', {
     maxZoom: 25,
-    attribution: 'Imagery &copy; <a href="https://www.mapbox.com/">Mapbox</a>',
     accessToken: API_KEY
 });
 
 var satellitesrtLayer = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/satellite-streets-v12/tiles/{z}/{x}/{y}?access_token={accessToken}', {
     maxZoom: 25,
-    attribution: 'Imagery &copy; <a href="https://www.mapbox.com/">Mapbox</a>',
     accessToken: API_KEY
 });
 
 var nightnavLayer = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/navigation-night-v1/tiles/{z}/{x}/{y}?access_token={accessToken}', {
     maxZoom: 25,
-    attribution: 'Imagery &copy; <a href="https://www.mapbox.com/">Mapbox</a>',
     accessToken: API_KEY
 });
 
 var daynavLayer = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/navigation-day-v1/tiles/{z}/{x}/{y}?access_token={accessToken}', {
     maxZoom: 25,
-    attribution: 'Imagery &copy; <a href="https://www.mapbox.com/">Mapbox</a>',
     accessToken: API_KEY
 });
 
@@ -61,7 +53,7 @@ var baseLayers = {
     "Day Navigation Map": daynavLayer
 };
 
-cartoDBDarkLayer.addTo(map);
+daynavLayer.addTo(map);
 
 const tectonicPlatesLayer = L.geoJSON(plates, {
     style: {
@@ -115,31 +107,31 @@ function displayEarthquakeInfo(earthquake) {
     const timePart = `${localTime.getHours().toString().padStart(2, '0')}:${localTime.getMinutes().toString().padStart(2, '0')}:${localTime.getSeconds().toString().padStart(2, '0')}`;
 
     const content = `
-        <p><strong><span style="color: green;">Place:</span></strong> ${earthquake["Place"]}</p>
-        <p><strong><span style="color: green;">Latitude:</span></strong> ${earthquake["Latitude"]}</p>
-        <p><strong><span style="color: green;">Longitude:</span></strong> ${earthquake["Longitude"]}</p>
-        <p><strong><span style="color: green;">Local Day:</span></strong> ${dayPart}</p>
-        <p><strong><span style="color: green;">Local Hour (GMT+1):</span></strong> ${timePart}</p>
-        <p><strong><span style="color: green;">Type:</span></strong> ${earthquake["(Earthquake | Quarry)"]}</p>
-        <p><strong><span style="color: green;">Magnitude:</span></strong> ${earthquake["Magnitude"]}</p>
-        <p><strong><span style="color: green;">Depth: (km)</span></strong> ${earthquake["Depth (km)"]}</p>
-        <p><strong><span style="color: green;">Number of felt reports:</span></strong> ${numberOfFeltReports}</p>
-        <p><strong><span style="color: green;">Number of stations:</span></strong> ${numberOfStations}</p>
-        <p><strong><span style="color: green;">Algorithm:</span></strong> ${earthquake["Method/Algrothim"]}</p>
+        <p><strong><span style="color: black;">Place:</span></strong> ${earthquake["Place"]}</p>
+        <p><strong><span style="color: black;">Latitude:</span></strong> ${earthquake["Latitude"]}</p>
+        <p><strong><span style="color: black;">Longitude:</span></strong> ${earthquake["Longitude"]}</p>
+        <p><strong><span style="color: black;">Local Day:</span></strong> ${dayPart}</p>
+        <p><strong><span style="color: black;">Local Hour (GMT+1):</span></strong> ${timePart}</p>
+        <p><strong><span style="color: black;">Type:</span></strong> ${earthquake["(Earthquake | Quarry)"]}</p>
+        <p><strong><span style="color: black;">Magnitude:</span></strong> ${earthquake["Magnitude"]}</p>
+        <p><strong><span style="color: black;">Depth (km):</span></strong> ${earthquake["Depth (km)"]}</p>
+        <p><strong><span style="color: black;">Number of felt reports:</span></strong> ${numberOfFeltReports}</p>
+        <p><strong><span style="color: black;">Number of stations:</span></strong> ${numberOfStations}</p>
+        <p><strong><span style="color: black;">Algorithm:</span></strong> ${earthquake["Method/Algrothim"]}</p>
         <button class="clear-button">Clear</button>
     `;
     const content2 = `
-        <p><strong><span style="color: green;">Place:</span></strong> ${earthquake["Place"]}</p>
-        <p><strong><span style="color: green;">Latitude:</span></strong> ${earthquake["Latitude"]}</p>
-        <p><strong><span style="color: green;">Longitude:</span></strong> ${earthquake["Longitude"]}</p>
-        <p><strong><span style="color: green;">Local Day:</span></strong> ${dayPart}</p>
-        <p><strong><span style="color: green;">Local Hour (GMT+1):</span></strong> ${timePart}</p>
-        <p><strong><span style="color: green;">Type:</span></strong> ${earthquake["(Earthquake | Quarry)"]}</p>
-        <p><strong><span style="color: green;">Magnitude:</span></strong> ${earthquake["Magnitude"]}</p>
-        <p><strong><span style="color: green;">Depth: (km)</span></strong> ${earthquake["Depth (km)"]}</p>
-        <p><strong><span style="color: green;">Number of felt reports:</span></strong> ${numberOfFeltReports}</p>
-        <p><strong><span style="color: green;">Number of stations:</span></strong> ${numberOfStations}</p>
-        <p><strong><span style="color: green;">Algorithm:</span></strong> ${earthquake["Method/Algrothim"]}</p>
+        <p><strong><span style="color: black;">Place:</span></strong> ${earthquake["Place"]}</p>
+        <p><strong><span style="color: black;">Latitude:</span></strong> ${earthquake["Latitude"]}</p>
+        <p><strong><span style="color: black;">Longitude:</span></strong> ${earthquake["Longitude"]}</p>
+        <p><strong><span style="color: black;">Local Day:</span></strong> ${dayPart}</p>
+        <p><strong><span style="color: black;">Local Hour (GMT+1):</span></strong> ${timePart}</p>
+        <p><strong><span style="color: black;">Type:</span></strong> ${earthquake["(Earthquake | Quarry)"]}</p>
+        <p><strong><span style="color: black;">Magnitude:</span></strong> ${earthquake["Magnitude"]}</p>
+        <p><strong><span style="color: black;">Depth (km):</span></strong> ${earthquake["Depth (km)"]}</p>
+        <p><strong><span style="color: black;">Number of felt reports:</span></strong> ${numberOfFeltReports}</p>
+        <p><strong><span style="color: black;">Number of stations:</span></strong> ${numberOfStations}</p>
+        <p><strong><span style="color: black;">Algorithm:</span></strong> ${earthquake["Method/Algrothim"]}</p>
         <button class="clear-button2">Clear</button>
     `;
     sidebar.innerHTML = content;
@@ -206,8 +198,8 @@ function filterAndDisplayEarthquakes() {
     const endYear = parseInt(document.getElementById("slider-2").value);
     circleMarkersLayer.clearLayers();
 
-    const colorStops = [0, 3, 4, 6, 7];
-    const colors = ["#008000", "#FFFF00", "#FFA500", "#FF0000", "#800080"];
+    const colorStops = [0, 3, 4, 6, 7, 9];
+    const colors = ["#008000", "#FFFF00", "#FFA500", "#FF0000", "#800080", "#300025"];
     data.forEach(function (earthquake) {
         const magnitude = parseFloat(earthquake["Magnitude"]);
         const dateStr = earthquake["Local Time"];
@@ -226,9 +218,9 @@ function filterAndDisplayEarthquakes() {
             }
 
             const circleMarker = L.circleMarker([lon, lat], {
-                radius: magnitude * 2,
+                radius: magnitude * 2.5,
                 fillColor: color,
-                fillOpacity: 0.8,
+                fillOpacity: 0.7,
                 color: "#000",
                 weight: 1,
             });

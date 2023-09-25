@@ -16,55 +16,54 @@
 <body>
     <header>
         <nav class="navbar">
-            <a href="index.html" id="home">
-                <img src="logo/flag.png" alt="home" style="height: 30px; width: 30px;">
+            <a href="index.html" title="home" id="home">
+                <img src="logo/home.png" alt="home" style="height: 20px; width: 20px;">
             </a>
             <div class="dropdown" id="drp">
                 <button class="dropbtn" id="mnbttn" onclick="toggleDropdown()">
-                    <img src="logo/burger.png" alt="menu" style="height: 30px; width: 30px;">
+                    <img src="logo/burger.png" alt="menu" style="height: 20px; width: 20px;">
                 </button>
                 <div id="myDropdown" class="dropdown-content">
-                    <a href="world.html">World Today's Earthquakes</a>
-                    <a href="week.html">Moroccan Weekly Earthquakes</a>
-                    <a href="index.html">Moroccan 20 Years Seismic History</a>
+                    <a href="index.html">Today's Earthquakes</a>
+                    <a href="week.html">Weekly Moroccan Quakes</a>
+                    <a href="history.html">Moroccan Seismic History</a>
                     <a href="https://www.paypal.me/3vlM0rty" target="_blank">
-                        Donate via PayPal
+                        Support via PayPal
                     </a><a href="https://github.com/3vil-M0rty" target="_blank">
                         Visit me on Github
                     </a>
                 </div>
             </div>
+            <a href="help.html" title="Help">
+                <img src="logo/help.png" alt="help" style="height: 15px; width: 15px; margin-top: 2px;">
+            </a>
             <a href="https://www.paypal.me/3vlM0rty" title="Donate Via PayPal" target="_blank">
-                <img src="logo/paypal.png" alt="PayPal" style="height: 30px; width: 30px;">
+                <img src="logo/paypal.png" alt="PayPal" style="height: 15px; width: 15px; margin-top: 2px;">
             </a>
             <a href="https://github.com/3vil-M0rty" title="Visit Me On Github" target="_blank">
-                <img src="logo/github.png" alt="Github" style="height: 30px; width: 30px;">
+                <img src="logo/github.png" alt="Github" style="height: 15px; width: 15px; margin-top: 2px;">
             </a>
         </nav>
-        <h1 class="desktop-only">LIVE WEEKLY DATA OF MOROCCAN EARTHQUAKES</h1>
-        <blockquote lang="ar" class="desktop-only" style="color: white;">
-            ذو العقل يشقى في النعيم بعقله ... وأخو الجهالة في الشقاوة ينعمُ 
-            <footer id="quote">- Al-Mutanabbi</footer>
-        </blockquote> 
     </header>
     <div class="container">
-        <div id="map"></div>
+        <div class="map" id="map"></div>
         <div class="desktop-only sidebar">
             <div class="sidebar-header">
-                <h3>Earthquake Information</h3>
+                <h3>Earthquake Details</h3>
             </div>
-            <div class="sidebar-content" id="sidecontent">
+            <div class="sidebar-contentX" id="sidecontent">
                 <button class="clear-button">Clear</button>
             </div>
         </div>
+        <div class="desktop-only bottom-left">
+            <span id="numofeq"></span>
+        </div>
     </div>
-    <div class="desktop-only bottom-left">
-        <span id="numofeq"></span>
-    </div>
+    
     <div class="phone-only">
         <div class="sidebar">
             <div class="sidebar-header">
-                <h3>Earthquake Information</h3>
+                <h3>Earthquake Details</h3>
             </div>
             <div class="sidebar-content" id="sidecontent2">
                 <button class="clear-button2">Clear</button>

@@ -40,5 +40,5 @@ function fillColor() {
     const endPercentage = (rangeEnd / range) * 100;
 
     sliderTrack.style.background = `
-        linear-gradient(to right, black 0%, black ${startPercentage}%, #93B1A6 ${startPercentage}%, #93B1A6 ${endPercentage}%, black ${endPercentage}%, black 100%)`;
+        linear-gradient(to right, black 0%, black ${startPercentage}%, #f3f3f3 ${startPercentage}%, #f3f3f3 ${endPercentage}%, black ${endPercentage}%, black 100%)`;
 }

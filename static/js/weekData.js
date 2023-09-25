@@ -61,10 +61,10 @@ var baseLayers = {
     "Night Navigation Map": nightnavLayer,
     "Day Navigation Map": daynavLayer
 };
-cartoDBDarkLayer.addTo(map);
+daynavLayer.addTo(map);
 const tectonicPlatesLayer = L.geoJSON(plates, {
     style: {
-        color: 'green', 
+        color: '#2fc92c', 
         weight: 2,
     }
 });
@@ -158,23 +158,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function displayEarthquakeInfo(earthquake) {
     const content = `
-        <p><strong><span style="color: green;">Place:</span></strong> ${earthquake["Place"]}</p>
-        <p><strong><span style="color: green;">Latitude:</span></strong> ${earthquake["Latitude"]}</p>
-        <p><strong><span style="color: green;">Longitude:</span></strong> ${earthquake["Longitude"]}</p>
-        <p><strong><span style="color: green;">Local Time:</span></strong> ${earthquake["Local Time (Morocco)"]}</p>
-        <p><strong><span style="color: green;">Type:</span></strong> ${earthquake["Type"]}</p>
-        <p><strong><span style="color: green;">Magnitude:</span></strong> ${earthquake["Magnitude"]}</p>
-        <p><strong><span style="color: green;">Depth (km):</span></strong> ${earthquake["Depth (km)"]}</p>
+        <p><strong><span style="color: black;">Place:</span></strong> ${earthquake["Place"]}</p>
+        <p><strong><span style="color: black;">Latitude:</span></strong> ${earthquake["Latitude"]}</p>
+        <p><strong><span style="color: black;">Longitude:</span></strong> ${earthquake["Longitude"]}</p>
+        <p><strong><span style="color: black;">Local Time:</span></strong> ${earthquake["Local Time (Morocco)"]}</p>
+        <p><strong><span style="color: black;">Type:</span></strong> ${earthquake["Type"]}</p>
+        <p><strong><span style="color: black;">Magnitude:</span></strong> ${earthquake["Magnitude"]}</p>
+        <p><strong><span style="color: black;">Depth (km):</span></strong> ${earthquake["Depth (km)"]}</p>
         <button class="clear-button">Clear</button>
     `;
     const content2 = `
-        <p><strong><span style="color: green;">Place:</span></strong> ${earthquake["Place"]}</p>
-        <p><strong><span style="color: green;">Latitude:</span></strong> ${earthquake["Latitude"]}</p>
-        <p><strong><span style="color: green;">Longitude:</span></strong> ${earthquake["Longitude"]}</p>
-        <p><strong><span style="color: green;">Local Time:</span></strong> ${earthquake["Local Time (Morocco)"]}</p>
-        <p><strong><span style="color: green;">Type:</span></strong> ${earthquake["Type"]}</p>
-        <p><strong><span style="color: green;">Magnitude:</span></strong> ${earthquake["Magnitude"]}</p>
-        <p><strong><span style="color: green;">Depth (km):</span></strong> ${earthquake["Depth (km)"]}</p>
+        <p><strong><span style="color: black;">Place:</span></strong> ${earthquake["Place"]}</p>
+        <p><strong><span style="color: black;">Latitude:</span></strong> ${earthquake["Latitude"]}</p>
+        <p><strong><span style="color: black;">Longitude:</span></strong> ${earthquake["Longitude"]}</p>
+        <p><strong><span style="color: black;">Local Time:</span></strong> ${earthquake["Local Time (Morocco)"]}</p>
+        <p><strong><span style="color: black;">Type:</span></strong> ${earthquake["Type"]}</p>
+        <p><strong><span style="color: black;">Magnitude:</span></strong> ${earthquake["Magnitude"]}</p>
+        <p><strong><span style="color: black;">Depth (km):</span></strong> ${earthquake["Depth (km)"]}</p>
         <button class="clear-button2">Clear</button>
     `;
     const sidebar = document.getElementById("sidecontent");

@@ -1,21 +1,30 @@
 body {
     text-align: center;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
-    background-color: #000000;
-    margin: 10px auto;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: #f3f3f3;
+    margin: 0;
+    padding: 0;
 }
 
-blockquote {
-    margin-top: -20px;
+
+.helptext {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: left;
+    margin-left: 10px;
+}
+
+.helptext ul, .helptext ul li a{
+    list-style: none;
+    text-decoration: none;
 }
 
 
 .navbar {
     overflow: hidden;
-    background-color: #000000;
+    background-color: #ffffff;
     font-family: Arial;
-    padding: 0;
-    margin-top: -10px;
+    padding: 10px;
+    border-bottom: 1px solid #dbdbdb;
 }
 
 #home {
@@ -24,11 +33,11 @@ blockquote {
 
 .navbar a {
     float: right;
-    padding: 10px 12px ;
+    padding: 10px 12px;
 }
 
 .dropdown {
-    margin:0;
+    margin: 0;
     padding: 0;
     float: right;
 }
@@ -44,116 +53,118 @@ blockquote {
 }
 
 .navbar a:hover,
-.dropdown:hover .dropbtn {
-    background-color: #000000;
+.dropdown:hover {
+    background-color: #f3f3f3;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
 }
 
 .dropdown-content {
     display: none;
     right: 0;
     position: absolute;
-    background-color: #1d1d1d;
+    background-color: white;
+    border: 1px solid #dbdbdb;
     padding: 0;
     z-index: 5000;
 }
 
 .dropdown-content a {
     float: none;
-    color: rgb(255, 255, 255);
+    color: #363636;
     padding: 15px 15px;
     text-decoration: none;
     font-family: inherit;
-    font-weight: bold;
+    font-size: 12px;
+    font-weight: bolder;
     display: flex;
 }
 
 .dropdown-content a:hover {
-    background-color: #ffffff;
+    background-color: #f3f3f3;
     color: black;
 }
 
 
 header h1 {
     margin-top: -2px;
-    color: #ffffff;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
-
-.logo {
-    width: 30px;
-    height: 30px;
+    color: #363636;
 }
 
 .container {
-    display: flex;
-    align-items: flex-start;
-    width: 90%;
-    margin: auto;
+    display: grid;
+    overflow: hidden;
+    grid-template-columns: repeat(3, 2fr) repeat(2, 1fr);
+    grid-template-rows: repeat(3, 2fr) repeat(2, 1fr);
+    grid-column-gap: 5px;
+    padding: 6px 15px 6px 15px;
+    height: calc(100%);
 }
 
-#map {
+.map {
+    grid-area: 1 / 1 / 6 / 4;
     text-align: left;
-    flex: 8;
-    width: auto;
-    height: 400px;
-    margin-right: 5px;
-    box-shadow: -3px -3px 9px #555;
 }
 
 .sidebar {
-    flex: 2;
-    background-color: #131313;
-    margin-right: 5px;
+    grid-area: 1 / 4 / 4 / 6; 
     text-align: center;
-    height: 400px;
     overflow-y: visible;
     position: relative;
 }
 
 .sidebar-header {
-    background-color: #000000;
-    margin: 0;
-    padding: 5px;
-    color: white;
+    background-color: #ffffff;
+    border: 1px solid #dbdbdb;
+    padding: 1px;
+    color: #363636;
 }
 
-.sidebar-content {
-    height: 70%;
+.sidebar-content, .sidebar-contentX {
     overflow-y: scroll;
     text-align: left;
-    font-size: 12px;
-    color: white;
-    padding: 5px;
+    font-size: 15px;
+    height: 340px;
+    color: #363636;
+    font-weight: normal;
+    font-family: inherit;
 }
-
+.sidebar-contentX {
+    height: 375px;
+    overflow-y: hidden;
+}
 .sidebar-content::-webkit-scrollbar {
     width: 10px;
 }
 
 .sidebar-content::-webkit-scrollbar-thumb {
-    background: #555;
+    background: #d1d1d1;
     border-radius: 5px;
 }
 
 .sidebar-content::-webkit-scrollbar-thumb:hover {
-    background: #888;
+    background: #797979;
 }
 
 .clear-button,
 .clear-button2 {
     position: absolute;
-    left: 78%;
+    left: 85%;
     transform: translateX(-50%);
     bottom: 10px;
     border-radius: 5px;
-    background-color: #646464;
+    background-color: #bdbdbd;
     color: black;
     padding: 5px 10px;
-    border: 2px solid #000000;
+    border: 1px solid #363636;
     touch-action: manipulation;
     cursor: pointer;
     will-change: transform;
+    font-weight: bold;
 }
+
 
 .clear-button:disabled,
 .clear-button2:disabled {
@@ -162,9 +173,9 @@ header h1 {
 
 .clear-button:hover {
     box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
-    transform: translate(-50%, -2px);
-    background-color: rgb(218, 25, 25);
-    border: 2px solid white;
+    transform: translate(-50%, -1px);
+    background-color: #f56666;
+    border: 1px solid #bdbdbd;
     color: white;
 }
 
@@ -174,99 +185,92 @@ header h1 {
 }
 
 
-
+.filters {
+    grid-area: 4 / 4 / 6 / 6; 
+}
 
 .slider-container {
-    text-align: center;
-    color: white;
-    background-color: #000000;
-    height: 400px;
+    color: #363636;
+    border: 1px solid #dbdbdb;
+    background-color: #ffffff;
     display: flex;
-    flex-direction: column;
     justify-content: space-around;
+    align-items: center; 
+    text-align: center;
 }
 
 .slider {
     writing-mode: bt-lr;
-    width: 100px;
-    height: 10px;
-    margin: auto;
+    height: 5px;
+    width: 80%;
     appearance: none;
-    background: linear-gradient(to right,
-            #008000 0%,
-            #FFFF00 29%,
-            #FFA500 40%,
-            #FF0000 60%,
-            #800080 70%,
-            #300025 90%);
-    border: none;
-    border-radius: 10%;
-    outline: none;
-    transform: rotate(-90deg);
-    transform-origin: center;
+    /* background: linear-gradient(to right,
+            rgb(0, 128, 0, 0.8) 0%,
+            rgb(255, 255, 0, 0.8) 29%,
+            rgb(255, 165, 0, 0.8) 40%,
+            rgb(255, 0, 0, 0.8) 60%,
+            rgb(128, 0, 128, 0.8) 70%,
+            rgb(48, 0, 37, 0.8) 90%); */
+    background: black;
+    border: 1px solid #363636;
+    border-radius: 10px;
 }
 
 .slider::-webkit-slider-thumb {
     appearance: none;
-    width: 10px;
-    height: 30px;
+    width: 17px;
+    height: 17px;
     background-color: #000000;
-    border: 1px solid rgb(105, 105, 105);
-    border-radius: 10%;
+    border: 1px solid #000000;
+    border-radius: 50%;
     cursor: pointer;
+}
+.slider::-webkit-slider-thumb:active, .slider::-webkit-slider-thumb:hover {
+    background-color: #dbdbdb;
+    border: 1px solid #000000;
 }
 
 #sliderlabel {
-    position: relative;
     font-weight: bold;
-    bottom: -120px;
-    color: white;
-    font-size: 12px;
-    margin-bottom: 20px;
+    color: #363636;
 }
 
 .slider-value {
-    position: relative;
-    top: -80px;
-    color: white;
+    color: #363636;
     font-weight: bold;
+    min-width: 30px;
 }
 
 .wrapper {
-    position: relative;
-    top: 5px;
+    margin-top: 10px;
+    background-color: white;
+    border: 1px solid #dbdbdb;
+    padding: 0 5px 6px 5px;
     font-weight: bold;
-    width: 50%;
-    background-color: rgb(0, 0, 0);
-    margin: auto;
 }
 
 .range-value {
-    background-color: #000000;
+    background-color: transparent;
     position: relative;
     margin: auto;
     padding: 10px 0;
-    bottom: 3px;
     text-align: center;
     font-weight: bold;
-    font-size: 16px;
-    color: white;
+    color: #363636;
 }
 
 .yearcontainer {
     position: relative;
     height: 20px;
-    margin-top: 5px;
 }
 
 .yearslider {
     width: 99%;
     margin: auto;
     outline: none;
-    height: 10px;
+    height: 5px;
     position: absolute;
-    background-color: #000000;
-    border: 1px solid #93B1A6;
+    border: 1px solid #363636;
     top: 0;
     bottom: 0;
 }
@@ -288,21 +292,21 @@ header h1 {
 
 .yearcontainer input[type="range"]::-webkit-slider-runnable-track {
     -webkit-appearance: none;
-    height: 10px;
+    height: 5px;
 }
 
 .yearcontainer input[type="range"]::-ms-track {
     appearance: none;
-    height: 10px;
+    height: 5px;
 }
 
 .yearcontainer input[type="range"]::-webkit-slider-thumb {
     appearance: none;
-    height: 30px;
+    height: 20px;
     width: 10px;
     background-color: black;
-    border: 1px solid rgb(105, 105, 105);
-    margin-top: -10px;
+    border: 1px solid #363636;
+    margin-top: -7px;
     cursor: pointer;
     pointer-events: auto;
 }
@@ -311,35 +315,44 @@ header h1 {
 
 .yearcontainer input[type="range"]::-moz-range-thumb {
     appearance: none;
-    height: 30px;
+    height: 20px;
     width: 10px;
+    margin-top: -7px;
     cursor: pointer;
     pointer-events: auto;
     background-color: black;
-    border: 1px solid rgb(105, 105, 105);
+    border: 1px solid #363636;
 }
 
 .yearcontainer input[type="range"]::-ms-thumb {
     appearance: none;
-    height: 30px;
+    height: 20px;
+    margin-top: -7px;
     width: 10px;
     cursor: pointer;
     pointer-events: auto;
     background-color: black;
-    border: 1px solid rgb(105, 105, 105);
+    border: 1px solid #363636;
 }
 
 .yearcontainer input[type="range"]:active::-webkit-slider-thumb {
-    background-color: #183D3D;
-    border: 1px solid rgb(105, 105, 105);
+    background-color: #dbdbdb;
+    border: 1px solid black;
 }
 
+.yearcontainer input[type="range"]:hover::-webkit-slider-thumb {
+    background-color: #dbdbdb;
+    border: 1px solid black;
+}
 
+#legend-toggle {
+    background-color: rgb(255, 255, 255, 0.2);
+}
 .legend {
     padding: 6px 8px;
     font: 14px Arial, Helvetica, sans-serif;
     font-weight: bold;
-    background: rgba(255, 255, 255, 0.8);
+    background: rgb(255, 255, 255, 0.8);
     opacity: 1;
     border-radius: 10px;
     line-height: 24px;
@@ -348,14 +361,13 @@ header h1 {
 
 .legend h5 {
     text-align: center;
-    font-size: 16px;
+    font-size: 14px;
     margin: 2px 12px 8px;
     color: #777;
 }
 
 .legend span {
     position: relative;
-    bottom: 3px;
 }
 
 .legend i {
@@ -363,17 +375,13 @@ header h1 {
     height: 18px;
     float: left;
     margin: 0 8px 0 0;
-    opacity: 0.7;
-}
-
-.sidebar-content {
-    font-size: 15px;
+    opacity: 1;
 }
 
 .bottom-left {
-    color: white;
+    grid-area: 4 / 4 / 6 / 6;
+    color: #363636;
     font-weight: bold;
-    margin-top: 5px;
 }
 
 .phone-only {
@@ -384,29 +392,33 @@ header h1 {
     .desktop-only {
         display: none;
     }
-    .navbar {
-        margin-top: 0;
-    }
+
+    
+
     .phone-only {
-        height: calc(50% - 30px);
+        height: calc(50% - 120px);
         margin-top: 0;
         width: 100%;
         display: block;
     }
 
+
     .phone-only .sidebar {
         margin-right: 0;
-        height: 100%;
+        height: 90%;
         margin-bottom: 0;
+        background-color: #f3f3f3;
     }
-
+    .sidebar-content {
+        margin-left: 5px;
+    }
+    .clear-button2 {
+        bottom: -100px;
+    }
     .legend {
         width: 120px;
     }
 
-    body {
-        background-color: #000000;
-    }
 
     body,
     html {
@@ -417,17 +429,15 @@ header h1 {
     }
 
     .container {
-        height: calc(50% - 25px);;
-        width: 100%;
+        display: block;
+        height: calc(50% - 50px);
+        padding: 0;
+        margin: 0;
         background-color: rgb(0, 0, 0);
     }
-
-    #map {
+    .map {
         width: 100%;
         height: 100%;
-        box-shadow: none;
-        margin-top: 0;
-        margin-right: 0;
         margin-bottom: 0;
     }
 
