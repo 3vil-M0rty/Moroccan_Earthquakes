@@ -270,7 +270,7 @@ function DisplayEarthquakes(data) {
         }
 
         const circleMarker = L.circleMarker([lat, lon], {
-            radius: magnitude * 2,
+            radius: magnitude * 5,
             fillColor: color,
             fillOpacity: 0.8,
             color: "#000",
